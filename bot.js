@@ -27,6 +27,23 @@ bot.on("ready", () => {
   logger.info("Logged in as: " + bot.user.tag);
 });
 
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+function getMentorsToday() {
+  const day = new Date().getDay(); //returns 0-6 for Sun-Sat
+  const dayName = days[day];
+
+  const embed = new Discord.MessageEmbed()
+            .setColor('#39FF14')
+            .setTitle("Who's in today");
+          
+  const matches = mentorData.filter((mentor) => mentor.time.includes(dayName));
+  matches.forEach((match) => {
+    embed.addField(`${match.name} is in the lab ${match.time}!`, `Feel free to drop by or book them here: ${match.link}`);
+    embed.addField('\u200b', `If you missed us, you can always make an appointment at ${codingLabSite}`);
+  });
+  bot.channels.cache.get(channelID).send(embed);
+}
+
 bot.on("message", (message) => {
   // ignore if message was sent by a bot
   if (message.author.bot) return;
@@ -64,9 +81,11 @@ bot.on("message", (message) => {
             embed.addField('\u200b', `Book a mentor or find a mentor on the coding lab site (${codingLabSite})`);
             bot.channels.cache.get(channelID).send(embed);
             break;
+          case "today":
+            getMentorsToday();
+            break;
           default:
             embed.setTitle(`All Coding Lab mentors`);
-            
             mentorData.forEach((m) => {
               embed.addField(`${m.name}`, `${m.name}'s office hours are ${m.time}!`);
             });
@@ -80,8 +99,6 @@ bot.on("message", (message) => {
   }
 });
 
-const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
 // Cron does time like so:
 // ('<minutes(of 60)> <hours(of 24)> <days(of month)> <months> <year>')
 // * means "every"
@@ -89,20 +106,7 @@ cron.schedule('0 8 * * *', function (err) {
     if (err) {
       console.log('Cron Job - There was an error ' + error);
     }
-
-    const day = new Date().getDay(); //returns 0-6 for Sun-Sat
-    const dayName = days[day];
-
-    const embed = new Discord.MessageEmbed()
-              .setColor('#39FF14')
-              .setTitle(`Help with ${skill}`);
-            
-    const matches = mentorData.filter((mentor) => mentor.time.includes(dayName));
-    matches.forEach((match) => {
-      embed.addField(`${match.name} is in the lab ${match.time}!`, `Feel free to drop by or book them here: ${match.link}`);
-      embed.addField('\u200b', `If you missed us, you can always make an appointment at ${codingLabSite}`);
-    });
-    bot.channels.cache.get(channelID).send(embed);
+    getMentorsToday();
   },
 {
   scheduled: true, timezone: "America/New_York"
