@@ -1,0 +1,18 @@
+{
+  "name": "codinglab-robot",
+  "version": "1.0.0",
+  "description": "Coding Lab Robot",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anna Lin",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "dotenv": "^8.2.0",
+    "node-cron": "^2.0.3",
+    "winston": "^3.2.1"
+  }
+}
