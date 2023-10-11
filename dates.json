@@ -1,0 +1,37 @@
+[
+  {
+  "title":"Data and APIs",
+  "description":"Learn what happens when you enter a URL in the browser, and how to use APIs",
+  "author":"with Anna Lin",
+  "time": "Friday 10/20 @ 11am",
+  "link":"https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NjdqNXIwZ3FiM25qbDJuYTM1ajhzamhicjIgY19haWRyNmllNHNpZ3B2Y2xkcDh1bnNlaG4zY0Bn&tmsrc=c_aidr6ie4sigpvcldp8unsehn3c%40group.calendar.google.com"
+  },
+  {
+  "title":"Introduction to React Web Apps",
+  "description":"Learn how to create a simple web application with React JS",
+  "author":"with Lucia Gomez",
+  "time": "Thursday 10/26 @ 2pm",
+  "link":"Add to your calendar"
+  },
+  {
+  "title":"GitHub Workshop",
+  "description":"Get comfortable with GitHub",
+  "author":"with Kai Cheng and Lucia Gomez",
+  "time": "TBD",
+  "link":"Add to your calendar"
+  },
+  {
+  "title":"Intro to SVG on the Web",
+  "description":"Learn how to use, manipulate and animate SVG on the web",
+  "author":"with Yu Lee",
+  "time": "Friday 11/10 @ 3pm",
+  "link":"Add to your calendar"
+  },
+  {
+  "title":"Intro to Shader and WEBGL",
+  "description":"This workshop will cover simple shader code and how to implement shader in a p5 sketch",
+  "author":"with Kai Cheng",
+  "time": "Friday 11/17 @ [time?]",
+  "link":"Add to your calendar"
+  }
+]
