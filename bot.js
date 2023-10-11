@@ -38,7 +38,7 @@ function getMentorsToday() {
           
   const matches = mentorData.filter((mentor) => mentor.time.includes(dayName));
   matches.forEach((match) => {
-    embed.addField(`${match.name} is in the lab ${match.time}!`, `Feel free to drop by or book them here: ${match.link}`);
+    embed.addField(`${match.name} is in the lab ${match.time}!`, `Feel free to drop by or book them here at ${match.link}`);
     embed.addField('\u200b', `If you missed us, you can always make an appointment at ${codingLabSite}`);
   });
   bot.channels.cache.get(channelID).send(embed);
@@ -63,7 +63,7 @@ bot.on("message", (message) => {
         switch (subCmd) {
           case "help":
             embed.setTitle(`Help!`);
-            embed.addField('\u200b', "To find a lab tech with a particular skill, use: \n`!codinglab skill <skill i.e. 'javascript'>` \nor you can list all lab techs with: \n`!codinglab`");
+            embed.addField('\u200b', "To find a lab tech with a particular skill, use: \n`i.e. !codinglab skill <javascript>` \nfind who is in the lab today with `!codinglab`\nor you can list all lab techs with: \n`!codinglab all`");
             bot.channels.cache.get(channelID).send(embed);
             break;
           case "skill":
@@ -81,16 +81,16 @@ bot.on("message", (message) => {
             embed.addField('\u200b', `Book a mentor or find a mentor on the coding lab site (${codingLabSite})`);
             bot.channels.cache.get(channelID).send(embed);
             break;
-          case "today":
-            getMentorsToday();
-            break;
-          default:
+          case "all":
             embed.setTitle(`All Coding Lab mentors`);
             mentorData.forEach((m) => {
               embed.addField(`${m.name}`, `${m.name}'s office hours are ${m.time}!`);
             });
             embed.addField('\u200b', `Book a mentor or find a mentor on the coding lab site (${codingLabSite})`);
             bot.channels.cache.get(channelID).send(embed);
+            break;
+          default:
+            getMentorsToday();
             break;
         }
         break;
