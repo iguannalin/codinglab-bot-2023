@@ -9,17 +9,40 @@
         <div id="container"></div>
     </body>
     <style>
+        @font-face {
+            font-family: "DotGothic16";
+            src: url('https://iguannalin.github.io/ctw/manifesto/DotGothic16/DotGothic16-Regular.ttf');
+        }
         body {
+            font-family: Helvetica, sans-serif;
+            font-size: 14px;
+            font-family: "DotGothic16";
             text-transform: lowercase;
+            display: flex;
+            justify-content: space-around;
         }
         @page {
-           size: 8.5in 11in;
-           margin: 0.5in 0.25in;
+            size: 8.5in 11in;
+            margin: 0in 0.1in;
         }
         @media print {
             a {
                 display: none !important;
             }
+        }
+        h1 {
+            margin: 12px 0 0;
+        }
+        #container div span {
+            margin-left: 16px;
+        }
+        #container div *:not(:first-child):not(span) {
+            margin-left: 50px;
+        }
+        mark {
+            margin-left: 150px;
+            float: right;
+            font-size: 0.9em;
         }
     </style>
     <script>
@@ -31,6 +54,7 @@
                 img.src = src;
                 img.style.paddingTop = "12px";
                 img.style.cursor = "pointer";
+                img.style.float = "right";
                 img.onclick = () => window.open("https://codinglab.itp.io/");
                 container.appendChild(img);
             }
@@ -40,32 +64,31 @@
                     const h1 = document.createElement("h1");
                     const span = document.createElement("span");
                     const h2 = document.createElement("h2");
+                    const p = document.createElement("p");
                     const mark = document.createElement("mark");
-                    const sub = document.createElement("sub");
                     const img = document.createElement("img");
                     const a = document.createElement("a");
                     a.innerText = "add to calendar";
                     a.style.display = "block";
                     a.href = date.link;
                     img.src = "icons/icon.png";
-                    img.style.paddingRight = "8px";
                     span.innerText = date.title;
                     h2.innerHTML += date.author+"&nbsp;&nbsp;";
-                    h2.appendChild(sub);
-                    sub.style.fontStyle = "italic";
-                    mark.innerText = date.description;
-                    sub.innerText = date.time;
+                    h2.appendChild(mark);
+                    p.style.fontStyle = "italic";
+                    p.innerText = date.description;
+                    mark.innerText = date.time;
                     div.style.padding = "6px";
                     h1.appendChild(img);
                     h1.appendChild(span);
                     div.appendChild(h1);
                     div.appendChild(h2);
-                    div.appendChild(mark);
+                    div.appendChild(p);
                     div.appendChild(a);
                     container.appendChild(div);
                 });
-                createImg("thecodinglab.png", 220);
                 createImg("qrcode.png", 150);
+                createImg("thecodinglab.png", 200);
             });
         });
     </script>
