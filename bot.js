@@ -39,8 +39,8 @@ function getMentorsToday() {
   const matches = mentorData.filter((mentor) => mentor.time.includes(dayName));
   matches.forEach((match) => {
     embed.addField(`${match.name} is in the lab ${match.time}!`, `Feel free to drop by or book them here at ${match.link}`);
-    embed.addField('\u200b', `If you missed us, you can always make an appointment at ${codingLabSite}`);
   });
+  embed.addField('\u200b', `If you missed us, you can always make an appointment at ${codingLabSite}`);
   bot.channels.cache.get(channelID).send(embed);
 }
 
