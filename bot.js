@@ -40,7 +40,6 @@ function getMentorsToday() {
   matches.forEach((match) => {
     embed.addField(`${match.name} is in the lab ${match.time}!`, `Feel free to drop by or book them here at ${match.link}`);
   });
-  embed.addField('\u200b', `If you missed us, you can always make an appointment at ${codingLabSite}`);
   bot.channels.cache.get(channelID).send(embed);
 }
 
@@ -86,7 +85,6 @@ bot.on("message", (message) => {
             mentorData.forEach((m) => {
               embed.addField(`${m.name}`, `${m.name}'s office hours are ${m.time}!`);
             });
-            embed.addField('\u200b', `Book a mentor or find a mentor on the coding lab site (${codingLabSite})`);
             bot.channels.cache.get(channelID).send(embed);
             break;
           default:
