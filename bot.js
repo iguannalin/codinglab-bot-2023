@@ -28,7 +28,7 @@ bot.on("ready", () => {
 });
 
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-function getMentorsToday() {
+function getMentorsToday(daily = false) {
   const day = new Date().getDay(); //returns 0-6 for Sun-Sat
   const dayName = days[day];
 
@@ -40,7 +40,12 @@ function getMentorsToday() {
   matches.forEach((match) => {
     embed.addField(`${match.name} is in the lab ${match.time}!`, `Feel free to drop by or book them here at ${match.link}`);
   });
-  bot.channels.cache.get(channelID).send(embed);
+  if (daily && (matches.length > 0)) bot.channels.cache.get(channelID).send(embed); // if daily cron job
+  else if (!daily && (matches.length < 1)) // if someone pinged the discord bot
+  {
+    embed.addField(`No-one in today!`, `Boo :(`);
+    bot.channels.cache.get(channelID).send(embed);
+  }
 }
 
 bot.on("message", (message) => {
@@ -104,7 +109,7 @@ cron.schedule('0 8 * * *', function (err) {
     if (err) {
       console.log('Cron Job - There was an error ' + error);
     }
-    getMentorsToday();
+    getMentorsToday(true);
   },
 {
   scheduled: true, timezone: "America/New_York"
