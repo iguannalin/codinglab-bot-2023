@@ -77,7 +77,7 @@ bot.on("message", (message) => {
 
             const matches = mentorData.filter((mentor) => mentor.skills.includes(skill));
             matches.forEach((match) => {
-              embed.addField(`${match.name} can help!`, `${match.name}'s office hours are ${match.time}.\nBook them here at `, `${match.link}.`);
+              embed.addField(`${match.name} can help!`, `${match.name}'s office hours are ${match.time}.\n${match.link}`);
             });
             if (matches.length < 1) {
               embed.addField('\u200b', `No particular experts here :(`);
