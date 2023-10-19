@@ -27,8 +27,8 @@ bot.on("ready", () => {
   logger.info("Logged in as: " + bot.user.tag);
 });
 
-const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-function getMentorsToday(daily = false, specificDay = 'Monday') {
+const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+function getMentorsToday(daily = false, specificDay = 'monday') {
   const day = new Date().getDay(); //returns 0-6 for Sun-Sat
   const dayName = daily ? days[day] : specificDay;
 
@@ -36,7 +36,7 @@ function getMentorsToday(daily = false, specificDay = 'Monday') {
             .setColor('#39FF14')
             .setTitle((daily ? ("Who's in today") : (`Who's in on ${specificDay}`)));
           
-  const matches = mentorData.filter((mentor) => mentor.time.includes(dayName));
+  const matches = mentorData.filter((mentor) => mentor.time.toLowerCase().includes(dayName));
   matches.forEach((match) => {
     embed.addField(`${match.name} is in the lab ${match.time}!`, `Feel free to drop by or book them here at ${match.link}`);
   });
@@ -93,7 +93,8 @@ bot.on("message", (message) => {
             bot.channels.cache.get(channelID).send(embed);
             break;
           default:
-            getMentorsToday(false, args[1]);
+            if (!args[1] && !days.includes(args[1].toLowerCase())) return;
+            getMentorsToday(false, args[1].toLowerCase());
             break;
         }
         break;
