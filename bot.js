@@ -28,19 +28,19 @@ bot.on("ready", () => {
 });
 
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-function getMentorsToday(daily = false) {
+function getMentorsToday(daily = false, specificDay = 'Monday') {
   const day = new Date().getDay(); //returns 0-6 for Sun-Sat
-  const dayName = days[day];
+  const dayName = daily ? days[day] : specificDay;
 
   const embed = new Discord.MessageEmbed()
             .setColor('#39FF14')
-            .setTitle("Who's in today");
+            .setTitle((daily ? ("Who's in today") : (`Who's in on ${specificDay}`)));
           
   const matches = mentorData.filter((mentor) => mentor.time.includes(dayName));
   matches.forEach((match) => {
     embed.addField(`${match.name} is in the lab ${match.time}!`, `Feel free to drop by or book them here at ${match.link}`);
   });
-  if (daily && (matches.length > 0)) bot.channels.cache.get(channelID).send(embed); // if daily cron job
+  if (matches.length > 0) bot.channels.cache.get(channelID).send(embed); // if daily cron job
   else if (!daily && (matches.length < 1)) // if someone pinged the discord bot
   {
     embed.addField(`No-one in today!`, `Boo :(`);
@@ -93,7 +93,7 @@ bot.on("message", (message) => {
             bot.channels.cache.get(channelID).send(embed);
             break;
           default:
-            getMentorsToday();
+            getMentorsToday(false, args[1]);
             break;
         }
         break;
