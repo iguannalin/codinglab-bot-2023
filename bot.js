@@ -93,8 +93,8 @@ bot.on("message", (message) => {
             bot.channels.cache.get(channelID).send(embed);
             break;
           default:
-            if (!args[1] && !days.includes(args[1].toLowerCase())) return;
-            getMentorsToday(false, args[1].toLowerCase());
+            if (!args[0] && !days.includes(args[0].toLowerCase())) return;
+            getMentorsToday(false, args[0].toLowerCase());
             break;
         }
         break;
