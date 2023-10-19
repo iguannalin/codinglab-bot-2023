@@ -30,8 +30,8 @@ bot.on("ready", () => {
 const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 function getMentorsToday(daily = false, specificDay = 'monday') {
   const day = new Date().getDay(); //returns 0-6 for Sun-Sat
-  const dayName = daily ? days[day] : specificDay;
-
+  let dayName = daily ? days[day] : specificDay;
+  dayName = dayName.charAt(0).toUpperCase() + dayName.substring(1).toLowerCase();
   const embed = new Discord.MessageEmbed()
             .setColor('#39FF14')
             .setTitle((daily ? ("Who's in today") : (`Who's in on ${specificDay}`)));
