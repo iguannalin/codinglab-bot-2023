@@ -27,11 +27,12 @@ bot.on("ready", () => {
   logger.info("Logged in as: " + bot.user.tag);
 });
 
-const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 function getMentorsToday(daily = false, specificDay = 'monday') {
   const day = daily ? new Date().getDay() : specificDay; //returns 0-6 for Sun-Sat
-  let dayName = dayName.charAt(0).toUpperCase() + dayName.substring(1).toLowerCase();
+  let dayName = specificDay;
   if (daily) dayName = days[day]
+  else dayName = day.charAt(0).toUpperCase() + day.substring(1).toLowerCase();
   const embed = new Discord.MessageEmbed()
             .setColor('#39FF14')
             .setTitle((daily ? ("Who's in today") : (`Who's in on ${specificDay}`)));
