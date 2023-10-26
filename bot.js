@@ -27,15 +27,13 @@ bot.on("ready", () => {
   logger.info("Logged in as: " + bot.user.tag);
 });
 
-const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 function getMentorsToday(daily = false, specificDay = 'monday') {
-  const day = daily ? new Date().getDay() : specificDay; //returns 0-6 for Sun-Sat
-  let dayName = specificDay;
-  if (daily) dayName = days[day]
-  else dayName = day.charAt(0).toUpperCase() + day.substring(1).toLowerCase();
+  const day = daily ? days[new Date().getDay()] : specificDay; //returns 0-6 for Sun-Sat
+  const dayName = day.charAt(0).toUpperCase() + day.substring(1).toLowerCase();
   const embed = new Discord.MessageEmbed()
             .setColor('#39FF14')
-            .setTitle((daily ? ("Who's in today") : (`Who's in on ${specificDay}`)));
+            .setTitle((daily ? ("Who's in today") : (`Who's in on ${dayName}`)));
           
   const matches = mentorData.filter((mentor) => mentor.time.toLowerCase().includes(dayName));
   matches.forEach((match) => {
@@ -94,8 +92,9 @@ bot.on("message", (message) => {
             bot.channels.cache.get(channelID).send(embed);
             break;
           default:
-            if (!args[0] && !days.includes(args[0].toLowerCase())) return;
-            getMentorsToday(false, args[0].toLowerCase());
+            // if someone entered a command that was not a day of the week, then do nothing
+            if (!subCmd || !days.includes(subCmd.toLowerCase())) return;
+            getMentorsToday(false, subCmd.toLowerCase());
             break;
         }
         break;
