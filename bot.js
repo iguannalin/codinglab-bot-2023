@@ -35,7 +35,7 @@ function getMentorsToday(daily = false, specificDay = 'monday') {
             .setColor('#39FF14')
             .setTitle((daily ? ("Who's in today") : (`Who's in on ${dayName}`)));
           
-  const matches = mentorData.filter((mentor) => mentor.time.toLowerCase().includes(dayName));
+  const matches = mentorData.filter((mentor) => mentor.time.includes(dayName));
   matches.forEach((match) => {
     embed.addField(`${match.name} is in the lab ${match.time}!`, `Feel free to drop by or book them here at ${match.link}`);
   });
