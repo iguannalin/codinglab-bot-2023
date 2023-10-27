@@ -93,8 +93,9 @@ bot.on("message", (message) => {
             break;
           default:
             // if someone entered a command that was not a day of the week, then do nothing
-            if (!subCmd || !days.includes(subCmd.toLowerCase())) return;
-            getMentorsToday(false, subCmd.toLowerCase());
+            if (!subCmd || !days.includes(subCmd.toLowerCase()) || !subCmd.toLowerCase() != "today") return;
+            if (subCmd.toLowerCase() == "today") getMentorsToday(true);
+            else getMentorsToday(false, subCmd.toLowerCase());
             break;
         }
         break;
@@ -106,7 +107,7 @@ bot.on("message", (message) => {
 // Cron does time like so:
 // ('<minutes(of 60)> <hours(of 24)> <days(of month)> <months> <year>')
 // * means "every"
-cron.schedule('0 8 * * *', function (err) {
+cron.schedule('0 7 * * *', function (err) {
     if (err) {
       console.log('Cron Job - There was an error ' + error);
     }
