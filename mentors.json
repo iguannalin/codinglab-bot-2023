@@ -1,17 +1,5 @@
 [
   {
-    "name":"MK",
-    "time":"Tuesday 10pm-12pm",
-    "link":"https://tinyurl.com/3u863rbt",
-    "skills":"backend & front end web development - javascript, python, npm, java, websockets, http rest services, html, css, graph, nosql, and mysql databases. creative coding and visualization - processing, p5.js, d3.js, live coding"
-  },
-  {
-    "name":"Dave",
-    "time":"Wednesday 10am-12pm, Friday 10am-12pm",
-    "link":"https://tinyurl.com/2d9bd7wc",
-    "skills":"javascript, processing, p5.js, openframeworks, amazon aws, coding strategies, general coding questions, career advice, some webgl, glsl, ableton, python, php, java, shell scripting, linux, github, c#, sql, arduino, electronics, unity"
-  },
-  {
     "name":"Isaiah",
     "time":"Monday 12pm-2pm",
     "link":"https://tinyurl.com/4hsdsbju",
@@ -29,12 +17,26 @@
     "link":"https://tinyurl.com/yc4kss8p",
     "skills":"frontend & web animation: html, css(sass), javascript, p5, three.js, webglbackend: python(flask & django), node.js (express)data analysis/data tracking: crawler(selenium), google analytics, pandas\nversion control, deployment and others: git, cloud services(aws, digital ocean), pcom, electric part repairing and projects for fun!"
   },
+
+  {
+    "name":"MK",
+    "time":"Tuesday 10pm-12pm",
+    "link":"https://tinyurl.com/3u863rbt",
+    "skills":"backend & front end web development - javascript, python, npm, java, websockets, http rest services, html, css, graph, nosql, and mysql databases. creative coding and visualization - processing, p5.js, d3.js, live coding"
+  },
   {
     "name":"Nima",
     "time":"Tuesday 12pm-3pm",
     "link":"https://tinyurl.com/47wnyza2",
     "skills":"html, css, javascript, typescript, node.js, p5.js, react.js, next.js, vue.js, python, django, flask, sql, nosql, graphql, rest apis, netlify, audio dsp, juce, tone.js"
   },
+  {
+    "name":"Dave",
+    "time":"Wednesday 10am-12pm, Friday 10am-12pm",
+    "link":"https://tinyurl.com/2d9bd7wc",
+    "skills":"javascript, processing, p5.js, openframeworks, amazon aws, coding strategies, general coding questions, career advice, some webgl, glsl, ableton, python, php, java, shell scripting, linux, github, c#, sql, arduino, electronics, unity"
+  },
+
   {
     "name":"Lucia",
     "time":"Wednesday 12:30pm-3:30pm ",
