@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>coding lab: digital security with harlo holmes</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="index.css"/>
+        <script src="index.js"></script>
+    </head>
+    <style>
+        body {
+            overflow: hidden;
+            text-transform: lowercase;
+        }
+        #container {
+            /* font-family: monospace; */
+        }
+        .block {
+            display: block;
+            position: absolute;
+            content: " ";
+            background-color: yellow;
+            /* transition: all 2.5s ease-in; */
+            /* transition: all 5s cubic-bezier(0.215, 0.610, 0.355, 1); */
+            border: solid 1px rgba(255, 255, 255, 0.8);
+            z-index: -100;
+        }
+        @page {
+           size: 8.5in 11in;
+           margin: 0.5in 0.25in;
+        }
+        @media print {
+            a {
+                display: none !important;
+            }
+        }
+    </style>
+    <body>
+        <div id="container">
+            <h1>Digital Security with Harlo Holmes</h1>
+            <p>
+            How much surveillance is happening in our online communities? 
+            <br>
+            Come learn about protecting yourself online, encrypted communication forms, and digital privacy with digital security expert <a href="https://freedom.press/people/harlo-holmes">Harlo Holmes</a>. 
+            <br>
+            This event will feature a slideshow talk, a Q&A session, plus a short workshop (no previous experience required); all are welcome.
+            </p>
+            <p></p>
+        </div>
+    </body>
+    <script>
+        window.addEventListener("load", () => {
+            const container = document.getElementById("container");
+            const createImg = (src, size) => {
+                const img = document.createElement("img");
+                img.width = size;
+                img.src = src;
+                img.style.paddingTop = "12px";
+                img.style.cursor = "pointer";
+                img.style.float = "right";
+                img.onclick = () => window.open("https://codinglab.itp.io/");
+                container.appendChild(img);
+            }
+            createImg("https://iguannalin.github.io/codinglab-bot-2023/qrcode.png", 150);
+            createImg("https://iguannalin.github.io/codinglab-bot-2023/thecodinglab.png", 200);
+            function getRandomInt(min, max) {
+                min = Math.ceil(min);
+                max = Math.floor(max);
+                return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+            }
+            const offset = 100;
+            function position(b) {
+                b.style.top = getRandomInt(-offset,window.innerHeight+offset)+"px";
+                b.style.left = getRandomInt(-offset,window.innerWidth+offset)+"px";
+            }
+
+            function randomize() {
+                const blocks = Array.from(document.getElementsByClassName("block"));
+                blocks.forEach((b) => position(b));
+            }
+
+            for (let i = 0; i < getRandomInt(450,500); i++) {
+                const block = document.createElement("span");
+                block.className = "block";
+                // const r = getRandomInt(40,45);
+                position(block);
+                block.style.width = r+"px";
+                block.style.height = r+"px";
+                document.body.appendChild(block);
+            }
+            setInterval(randomize, 2500);
+        });
+    </script>
+</html>
