@@ -17,10 +17,10 @@ window.addEventListener("load", () => {
     blocks.forEach((b) => position(b));
   }
 
-  for (let i = 0; i < getRandomInt(275,300); i++) {
+  for (let i = 0; i < getRandomInt(450,500); i++) {
     const block = document.createElement("span");
     block.className = "block";
-    const r = getRandomInt(10,15);
+    const r = getRandomInt(50,55);
     position(block);
     block.style.width = r+"px";
     block.style.height = r+"px";
