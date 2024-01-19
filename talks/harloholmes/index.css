@@ -1,0 +1,18 @@
+body {
+  overflow: hidden;
+}
+
+#container {
+  font-family: monospace;
+}
+
+.block {
+  display: block;
+  position: absolute;
+  content: " ";
+  background-color: yellow;
+  /* transition: all 2.5s ease-in; */
+  /* transition: all 5s cubic-bezier(0.215, 0.610, 0.355, 1); */
+  /* border: solid 2px rgba(55,55,55,0.8); */
+  z-index: -100;
+}
