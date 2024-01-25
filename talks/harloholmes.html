@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>coding lab: digital security with harlo holmes</title>
+        <title>Harlo Holmes</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="index.css"/>
         <script src="index.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
     </head>
     <style>
         body {
             overflow: hidden;
-            text-transform: lowercase;
+            font-family: 'DotGothic16', sans-serif;
+            margin: 48px 24px;
         }
         #container {
-            /* font-family: monospace; */
+            margin: 0 0 64px 0;
+            max-width: 75ch;
         }
-        .block {
-            display: block;
-            position: absolute;
-            content: " ";
-            background-color: yellow;
-            /* transition: all 2.5s ease-in; */
-            /* transition: all 5s cubic-bezier(0.215, 0.610, 0.355, 1); */
-            border: solid 1px rgba(255, 255, 255, 0.8);
-            z-index: -100;
+        #shape {
+            width: 20vw;
+            margin: 24px;
         }
+        #polygon {
+            fill: rgb(255, 255, 0);
+                stroke-width: 0px;
+            }
         @page {
            size: 8.5in 11in;
            margin: 0.5in 0.25in;
@@ -37,20 +40,41 @@
     </style>
     <body>
         <div id="container">
-            <h1>Digital Security with Harlo Holmes</h1>
+            <h1>Digital Security Talk with Harlo Holmes</h1>
+            <h2>February 31st, 2024 @ 12pm - 3pm</h2>
+            <h3>Red Square, 370 Jay St. 4th Floor</h3>
+            <div id="text">
             <p>
             How much surveillance is happening in our online communities? 
             <br>
+            <br>
             Come learn about protecting yourself online, encrypted communication forms, and digital privacy with digital security expert <a href="https://freedom.press/people/harlo-holmes">Harlo Holmes</a>. 
+            <br>
             <br>
             This event will feature a slideshow talk, a Q&A session, plus a short workshop (no previous experience required); all are welcome.
             </p>
+            </div>
             <p></p>
+        </div>
+        <div id="footer">
+            <svg id="shape" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 155.91 163.88"></svg>
         </div>
     </body>
     <script>
         window.addEventListener("load", () => {
-            const container = document.getElementById("container");
+            const container = document.getElementById("footer");
+            const shape = document.getElementById("shape");
+            const points = [0, 155.91, 0, 38.69, 155.91, 0, 143.39, 163.88];
+            setInterval(() => {
+                const randomXIndex = Math.round((Math.random()*10)%(points.length/2))-1;
+                const randomYIndex = randomXIndex + 1;
+                points[randomYIndex] += (Math.random()>0.5?-20:20);
+                polygon.setAttribute("points", points.toString().replaceAll(",", " "));
+            }, 500);
+            const polygon = document.createElementNS('http://www.w3.org/2000/svg','polygon');
+            polygon.id = "polygon";
+            polygon.setAttribute("points", points.toString().replaceAll(",", " "));
+            shape.appendChild(polygon);
             const createImg = (src, size) => {
                 const img = document.createElement("img");
                 img.width = size;
@@ -68,27 +92,6 @@
                 max = Math.floor(max);
                 return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
             }
-            const offset = 100;
-            function position(b) {
-                b.style.top = getRandomInt(-offset,window.innerHeight+offset)+"px";
-                b.style.left = getRandomInt(-offset,window.innerWidth+offset)+"px";
-            }
-
-            function randomize() {
-                const blocks = Array.from(document.getElementsByClassName("block"));
-                blocks.forEach((b) => position(b));
-            }
-
-            for (let i = 0; i < getRandomInt(450,500); i++) {
-                const block = document.createElement("span");
-                block.className = "block";
-                // const r = getRandomInt(40,45);
-                position(block);
-                block.style.width = r+"px";
-                block.style.height = r+"px";
-                document.body.appendChild(block);
-            }
-            setInterval(randomize, 2500);
         });
     </script>
 </html>
