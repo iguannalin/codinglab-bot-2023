@@ -21,17 +21,27 @@
             max-width: 100ch;
             height: 100%;
         }
+        #details {
+            display: flex;
+            justify-content: space-between;
+            flex-flow: row wrap;
+        }
         #container {
             margin: 0 0 64px 0;
-            max-width: 75ch;
+            max-width: 55ch;
             box-sizing: border-box;
         }
-        #shape {
+        #shape, #hshape {
             width: 20vw;
             margin: 24px;
         }
-        #polygon {
-        fill: rgb(255, 255, 0);
+        #header {
+            position: absolute;
+            top: 12px;
+            right: 0px;
+        }
+        .polygon {
+            fill: rgb(255, 255, 0);
             stroke-width: 0px;
         }
         @page {
@@ -43,30 +53,36 @@
                 display: none !important;
             }
             body {
+                margin: 12px;
                 margin-bottom: 0;
             }
             #footer {
-                padding-top: 180px;
+                padding-top: 90px;
             }
         }
     </style>
     <body>
-        <div id="container">
-            <h1>Digital Security Talk with Harlo Holmes</h1>
-            <h2>February 31st, 2024 @ 12pm - 3pm</h2>
-            <h3>Red Square, 370 Jay St. 4th Floor</h3>
-            <div id="text">
-            <p>
-            How much surveillance is happening in our online communities? 
-            <br>
-            <br>
-            Come learn about protecting yourself online, encrypted communication forms, and digital privacy with digital security expert <a href="https://freedom.press/people/harlo-holmes">Harlo Holmes</a>. 
-            <br>
-            <br>
-            This event will feature a slideshow talk, a Q&A session, plus a short workshop (no previous experience required); all are welcome.
-            </p>
+        <div id="details">
+            <div id="container">
+                <h1>Digital Security Talk with Harlo Holmes</h1>
+                <h2>February 31st, 2024 @ 12pm - 3pm</h2>
+                <h3>Red Square, 370 Jay St. 4th Floor</h3>
+                <div id="text">
+                <p>
+                How much surveillance is happening in our online communities? 
+                <br>
+                <br>
+                Come learn about protecting yourself online, encrypted communication forms, and digital privacy with digital security expert <a href="https://freedom.press/people/harlo-holmes">Harlo Holmes</a>. 
+                <br>
+                <br>
+                This event will feature a slideshow talk, a Q&A session, plus a short workshop (no previous experience required); all are welcome.
+                </p>
+                </div>
+                <p></p>
             </div>
-            <p></p>
+            <div id="header">
+                <svg id="hshape" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 155.91 163.88"></svg>
+            </div>
         </div>
         <div id="footer">
             <svg id="shape" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 155.91 163.88"></svg>
@@ -74,23 +90,26 @@
     </body>
     <script>
         window.addEventListener("load", () => {
-            const container = document.getElementById("footer");
-            const shape = document.getElementById("shape");
             const original = [0, 155.91, 0, 38.69, 155.91, 0, 143.39, 163.88];
-            const points = [0, 155.91, 0, 38.69, 155.91, 0, 143.39, 163.88];
-            setInterval(() => {
-                if (Math.random()*0.5 > 0.9) {
-                    polygon.setAttribute("points", original.toString().replaceAll(",", " "));
-                } else {
-                    const randomXIndex = Math.round((Math.random()*10)%(points.length/2))-1;
-                    const randomYIndex = randomXIndex + 1;
-                    points[randomYIndex] += (Math.random()>0.5?-20:20);
-                    polygon.setAttribute("points", points.toString().replaceAll(",", " "));
-                }
-            }, 250);
-            const polygon = document.createElementNS('http://www.w3.org/2000/svg','polygon');
-            polygon.id = "polygon";
-            shape.appendChild(polygon);
+            const p = [0, 155.91, 0, 38.69, 155.91, 0, 143.39, 163.88];
+            const p2 = [0, 155.91, 0, 38.69, 155.91, 0, 143.39, 163.88];
+            function createShape(s, points) {
+                const polygon = document.createElementNS('http://www.w3.org/2000/svg','polygon');
+                polygon.id = "polygon";
+                polygon.setAttribute("class", "polygon");
+                s.appendChild(polygon);
+                setInterval(() => {
+                    if (Math.random()*0.5 > 0.9) {
+                        polygon.setAttribute("points", original.toString().replaceAll(",", " "));
+                    } else {
+                        const randomXIndex = Math.round((Math.random()*10)%(points.length/2))-1;
+                        const randomYIndex = randomXIndex + 1;
+                        points[randomYIndex] += (Math.random()>0.5?-20:20);
+                        polygon.setAttribute("points", points.toString().replaceAll(",", " "));
+                    }
+                }, 250);
+            }
+            const container = document.getElementById("footer");
             const createImg = (src, size) => {
                 const img = document.createElement("img");
                 img.width = size;
@@ -103,11 +122,8 @@
             }
             createImg("https://iguannalin.github.io/codinglab-bot-2023/qrcode.png", 150);
             createImg("https://iguannalin.github.io/codinglab-bot-2023/thecodinglab.png", 200);
-            function getRandomInt(min, max) {
-                min = Math.ceil(min);
-                max = Math.floor(max);
-                return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
-            }
+            createShape(document.getElementById("hshape"), p2);
+            createShape(document.getElementById("shape"), p);
         });
     </script>
 </html>
