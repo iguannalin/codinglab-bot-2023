@@ -14,20 +14,26 @@
         body {
             overflow: hidden;
             font-family: 'DotGothic16', sans-serif;
-            margin: 48px 24px;
+            margin: 24px;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            max-width: 100ch;
+            height: 100%;
         }
         #container {
             margin: 0 0 64px 0;
             max-width: 75ch;
+            box-sizing: border-box;
         }
         #shape {
             width: 20vw;
             margin: 24px;
         }
         #polygon {
-            fill: rgb(255, 255, 0);
-                stroke-width: 0px;
-            }
+        fill: rgb(255, 255, 0);
+            stroke-width: 0px;
+        }
         @page {
            size: 8.5in 11in;
            margin: 0.5in 0.25in;
@@ -35,6 +41,12 @@
         @media print {
             a {
                 display: none !important;
+            }
+            body {
+                margin-bottom: 0;
+            }
+            #footer {
+                padding-top: 180px;
             }
         }
     </style>
@@ -64,16 +76,20 @@
         window.addEventListener("load", () => {
             const container = document.getElementById("footer");
             const shape = document.getElementById("shape");
+            const original = [0, 155.91, 0, 38.69, 155.91, 0, 143.39, 163.88];
             const points = [0, 155.91, 0, 38.69, 155.91, 0, 143.39, 163.88];
             setInterval(() => {
-                const randomXIndex = Math.round((Math.random()*10)%(points.length/2))-1;
-                const randomYIndex = randomXIndex + 1;
-                points[randomYIndex] += (Math.random()>0.5?-20:20);
-                polygon.setAttribute("points", points.toString().replaceAll(",", " "));
+                if (Math.random()*0.5 > 0.9) {
+                    polygon.setAttribute("points", original.toString().replaceAll(",", " "));
+                } else {
+                    const randomXIndex = Math.round((Math.random()*10)%(points.length/2))-1;
+                    const randomYIndex = randomXIndex + 1;
+                    points[randomYIndex] += (Math.random()>0.5?-20:20);
+                    polygon.setAttribute("points", points.toString().replaceAll(",", " "));
+                }
             }, 250);
             const polygon = document.createElementNS('http://www.w3.org/2000/svg','polygon');
             polygon.id = "polygon";
-            polygon.setAttribute("points", points.toString().replaceAll(",", " "));
             shape.appendChild(polygon);
             const createImg = (src, size) => {
                 const img = document.createElement("img");
