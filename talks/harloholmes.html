@@ -70,7 +70,7 @@
                 const randomYIndex = randomXIndex + 1;
                 points[randomYIndex] += (Math.random()>0.5?-20:20);
                 polygon.setAttribute("points", points.toString().replaceAll(",", " "));
-            }, 500);
+            }, 250);
             const polygon = document.createElementNS('http://www.w3.org/2000/svg','polygon');
             polygon.id = "polygon";
             polygon.setAttribute("points", points.toString().replaceAll(",", " "));
