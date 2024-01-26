@@ -1,70 +1,50 @@
-[
-  {
-    "name":"Isaiah",
-    "time":"Monday 12pm-2pm",
-    "link":"https://tinyurl.com/4hsdsbju",
-    "skills":"javascript, arduino, full-stack development, c#, python, html, css, technical design, technical interview prep, debugging, apis, musical interfaces, career advice & road mapping, icm"
-  },
-  {
-    "name":"Orpheas",
-    "time":"Monday 12pm-3pm",
-    "link":"https://tinyurl.com/m4zavx9z",
-    "skills":"python, c/c++, machine learning, tensorflow, arduino, processing/p5.js, javascript, java, music projects, audio analysis/dsp, midi protocol/devices, shell scripting, notebooks, debugging"
-  },
-  {
-    "name":"Kai",
-    "time":"Monday 3pm-6pm",
-    "link":"https://tinyurl.com/yc4kss8p",
-    "skills":"frontend & web animation: html, css(sass), javascript, p5, three.js, webglbackend: python(flask & django), node.js (express)data analysis/data tracking: crawler(selenium), google analytics, pandas\nversion control, deployment and others: git, cloud services(aws, digital ocean), pcom, electric part repairing and projects for fun!"
-  },
-
-  {
-    "name":"MK",
-    "time":"Tuesday 10pm-12pm",
-    "link":"https://tinyurl.com/3u863rbt",
-    "skills":"backend & front end web development - javascript, python, npm, java, websockets, http rest services, html, css, graph, nosql, and mysql databases. creative coding and visualization - processing, p5.js, d3.js, live coding"
-  },
-  {
-    "name":"Nima",
-    "time":"Tuesday 12pm-3pm",
-    "link":"https://tinyurl.com/47wnyza2",
-    "skills":"html, css, javascript, typescript, node.js, p5.js, react.js, next.js, vue.js, python, django, flask, sql, nosql, graphql, rest apis, netlify, audio dsp, juce, tone.js"
-  },
-  {
-    "name":"Dave",
-    "time":"Wednesday 10am-12pm, Friday 10am-12pm",
-    "link":"https://tinyurl.com/2d9bd7wc",
-    "skills":"javascript, processing, p5.js, openframeworks, amazon aws, coding strategies, general coding questions, career advice, some webgl, glsl, ableton, python, php, java, shell scripting, linux, github, c#, sql, arduino, electronics, unity"
-  },
-
-  {
-    "name":"Lucia",
-    "time":"Wednesday 12:30pm-3:30pm ",
-    "link":"https://tinyurl.com/2f357swt",
-    "skills":"backend and front end web development, react, javascript, html/css, java, python, node.js, bash, github, creating/using/testing apis, hosting platforms, mysql databases, project planning, how to google things effectively"
-  },
-  {
-    "name":"Yu",
-    "time":"Wednesday 3pm-6pm",
-    "link":"https://tinyurl.com/ddvc546r",
-    "skills":"react, next.js, javascript, html/css, p5.js, d3.js, three.js, git/github, node, vercel, netlify, heroku, socket.io, firebase, restful api, postgresql, mongodb, emotional support"
-  },
+[ 
   {
     "name":"Edward",
-    "time":"Thursday 3pm-6pm",
+    "time":"Monday 10am-1pm",
     "link":"https://tinyurl.com/bdhu4jw4",
     "skills":"full-stack web development, javascript, html/css, node.js, socket.io, java, python, p5.js, blender, general coding, debugging"
   },
   {
+    "name":"Sangyu",
+    "time":"Monday 3pm-6pm",
+    "link":"https://tinyurl.com/5e8vzarb",
+    "skills":"java, javascript, html/css, c, python, shell scripting, linux, git, general coding/debugging"
+  },
+  {
+    "name":"Lucia",
+    "time":"Tuesday 1:00pm-4:00pm ",
+    "link":"https://tinyurl.com/2f357swt",
+    "skills":"backend and front end web development, react, javascript, html/css, java, python, node.js, bash, github, creating/using/testing apis, hosting platforms, mysql databases, project planning, how to google things effectively"
+  },
+  {
+    "name":"Kai",
+    "time":"Wednesday 12pm-3pm",
+    "link":"https://tinyurl.com/yc4kss8p",
+    "skills":"frontend & web animation: html, css(sass), javascript, p5, three.js, webglbackend: python(flask & django), node.js (express)data analysis/data tracking: crawler(selenium), google analytics, pandas\nversion control, deployment and others: git, cloud services(aws, digital ocean), pcom, electric part repairing and projects for fun!"
+  },
+  {
+    "name":"Yu",
+    "time":"Thursday 12pm-3pm",
+    "link":"https://tinyurl.com/ddvc546r",
+    "skills":"react, next.js, javascript, html/css, p5.js, d3.js, three.js, git/github, node, vercel, netlify, heroku, socket.io, firebase, restful api, postgresql, mongodb, emotional support"
+  },
+  {
+    "name":"Nima",
+    "time":"Thursday 3pm-6pm",
+    "link":"https://tinyurl.com/47wnyza2",
+    "skills":"html, css, javascript, typescript, node.js, p5.js, react.js, next.js, vue.js, python, django, flask, sql, nosql, graphql, rest apis, netlify, audio dsp, juce, tone.js"
+  },
+  {
     "name":"Anna",
-    "time":"Friday 12pm-3pm",
+    "time":"Friday 10am-1pm",
     "link":"https://tinyurl.com/ytv7anmv",
     "skills":"javascript, html/css (sass etc), apis, python, p5, git, angular/ts, heroku, bash scripts, website hacking/data scraping with the browser console, general debugging, and emotional support"
   },
   {
-    "name":"Sangyu",
+    "name":"Orpheas",
     "time":"Friday 1pm-4pm",
-    "link":"https://tinyurl.com/5e8vzarb",
-    "skills":"java, javascript, html/css, c, python, shell scripting, linux, git, general coding/debugging"
+    "link":"https://tinyurl.com/m4zavx9z",
+    "skills":"python, c/c++, machine learning, tensorflow, arduino, processing/p5.js, javascript, java, music projects, audio analysis/dsp, midi protocol/devices, shell scripting, notebooks, debugging"
   }
 ]
