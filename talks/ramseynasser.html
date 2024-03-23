@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ramsey Nasser</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="index.css"/>
+        <script src="index.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    </head>
+    <style>
+        body {
+            overflow: hidden;
+            font-family: 'DotGothic16', sans-serif;
+            margin: 24px;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            max-width: 100ch;
+            height: 100%;
+        }
+        #details {
+            display: flex;
+            justify-content: space-between;
+            flex-flow: row wrap;
+        }
+        #container {
+            margin: 0 0 10px 0;
+            max-width: 60ch;
+            box-sizing: border-box;
+        }
+        #shape, #hshape {
+            width: 20vw;
+            margin: 24px;
+        }
+        #header {
+            position: absolute;
+            top: 12px;
+            right: 0px;
+        }
+        #footer {
+            box-sizing: border-box;
+        }
+        .polygon {
+            fill: rgb(0, 4, 255);
+            stroke-width: 0px;
+        }
+        #text {
+            max-width: 35ch;
+            line-height: 24px;
+        }
+        #image img {
+            position: absolute;
+            top: 30vh;
+            right: 0vw;
+            max-width: 450px;
+            clip-path: circle(35%);
+            border-radius: 20px;
+            filter: grayscale(1);
+        }
+        @page {
+           size: 8.5in 11in;
+           margin: 0.5in 0.25in;
+        }
+        @media print {
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+            body {
+                margin: 72px;
+            }
+            #header {
+                top: 72px !important;
+                right: 48px !important;
+            }
+            #footer {
+                padding-top: 80px;
+            }
+        }
+    </style>
+    <body>
+        <div id="details">
+            <div id="container">
+                <h1>Coding Lab Talk: Ramsey Nasser</h1>
+                <h2>Friday March 29th 2024<br>@ 12:00pm - 1:30pm</h2>
+                <h3>Red Square, 370 Jay St. 4th Floor</h3>
+                <div class="column">
+                    <div id="text">
+                        <p>
+                            <a href="https://nas.sr/about/">Ramsey Nasser</a> is the founder and worker-owner of the <a href="https://emma.coop/">EMMA Technology Cooperative</a>.
+                        <br>
+                        <br>
+                        Let's talk about career trajectories, non-traditional programming languages, and going from working independently to starting your own creative tech cooperative.
+                        <br>
+                        <br>
+                        This event will feature a talk, followed by a Q&A session; all are welcome! Food will be provided 💖
+                        </p>
+                    </div>
+                    <div id="image">
+                        <img alt="ramsey nasser, picture from nas.sr" src="https://nas.sr/about/me.png"/>
+                    </div>
+                </div>
+                <p></p>
+            </div>
+            <div id="header">
+                <svg id="hshape" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 155.91 163.88"></svg>
+            </div>
+        </div>
+        <div id="footer">
+            <svg id="shape" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 155.91 163.88"></svg>
+        </div>
+    </body>
+    <script>
+        window.addEventListener("load", () => {
+            const original = [0, 155.91, 0, 38.69, 155.91, 0, 143.39, 163.88];
+            const p = [0, 155.91, 0, 38.69, 155.91, 0, 143.39, 163.88];
+            const p2 = [0, 155.91, 0, 38.69, 155.91, 0, 143.39, 163.88];
+            function createShape(s, points) {
+                const polygon = document.createElementNS('http://www.w3.org/2000/svg','polygon');
+                polygon.id = "polygon";
+                polygon.setAttribute("class", "polygon");
+                s.appendChild(polygon);
+                setInterval(() => {
+                    if (Math.random()*0.5 > 0.9) {
+                        polygon.setAttribute("points", original.toString().replaceAll(",", " "));
+                    } else {
+                        const randomXIndex = Math.round((Math.random()*10)%(points.length/2))-1;
+                        const randomYIndex = randomXIndex + 1;
+                        points[randomYIndex] += (Math.random()>0.5?-20:20);
+                        polygon.setAttribute("points", points.toString().replaceAll(",", " "));
+                    }
+                }, 250);
+            }
+            const container = document.getElementById("footer");
+            const createImg = (src, size) => {
+                const img = document.createElement("img");
+                img.width = size;
+                img.src = src;
+                img.style.paddingTop = "12px";
+                img.style.cursor = "pointer";
+                img.style.float = "right";
+                img.onclick = () => window.open("https://codinglab.itp.io/");
+                container.appendChild(img);
+            }
+            createImg("https://iguannalin.github.io/codinglab-bot-2023/qrcode.png", 150);
+            createImg("https://iguannalin.github.io/codinglab-bot-2023/thecodinglab.png", 200);
+            createShape(document.getElementById("hshape"), p2);
+            createShape(document.getElementById("shape"), p);
+        });
+    </script>
+</html>
