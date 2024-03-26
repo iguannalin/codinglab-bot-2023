@@ -1,0 +1,30 @@
+[
+  {
+    "title":"Technical Interview Preparation (SWE)",
+    "description":"Learn how to properly prepare for any technical interview, and all other helpful tips about the interview process. We will be discussing techniques from mock interviewing, technical assessment tips, interviewing, problem-solving skills, and more!",
+    "author":"with Isaiah Bayas",
+    "time": "Friday 3/29 2pm-3:30pm | Room 413",
+    "link":"https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MWRlZ2FwMXYwbGRuaTJpYThkYTk3c2F1MjAgY19haWRyNmllNHNpZ3B2Y2xkcDh1bnNlaG4zY0Bn&tmsrc=c_aidr6ie4sigpvcldp8unsehn3c%40group.calendar.google.com"
+  },
+  {
+  "title":"Hacking with the browser",
+  "description":"Learn what happens when you enter a URL in the browser, how to use APIs, how to get over $$$-walls, and familiarize yourself with the network tools in the browser. Everyone is welcome--please bring a laptop!",
+  "author":"with Anna Lin",
+  "time": "Thursday 4/4 12pm-1pm | Room 450",
+  "link":"https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=N3FqZnB1bXJicHQ1OGM4cTE5djNkOHYzZ2EgY19haWRyNmllNHNpZ3B2Y2xkcDh1bnNlaG4zY0Bn&tmsrc=c_aidr6ie4sigpvcldp8unsehn3c%40group.calendar.google.com"
+  },
+  {
+  "title":"Making an Interactive Desktop Wallpaper",
+  "description":"A 40-minute workshop on how to make an interactive desktop wallpaper using p5.js and Übersicht. This session will be newbie-friendly and light. Participants will need to have a p5 sketch they want to use as wallpaper and a MacBook.",
+  "author":"with Kai Cheng",
+  "time": "Tuesday 4/9 4pm-4:40pm | Room 409",
+  "link":"https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MTVrbHBxcjJuZDc3dmFocmVxbGFvZmQ5NzYgY19haWRyNmllNHNpZ3B2Y2xkcDh1bnNlaG4zY0Bn&tmsrc=c_aidr6ie4sigpvcldp8unsehn3c%40group.calendar.google.com"
+  },
+  {
+  "title":"Introduction to Power Sources for Small Electronic Projects",
+  "description":"A 2-3 hour session covering basic energy-related knowledge, how to use basic level power-related equipment (multimeters, power supplies, voltage, and current sensors, etc.), how to select the proper battery for your project, and commonly used battery options.",
+  "author":"with Kai Cheng",
+  "time": "Saturday 4/13 1pm-4pm | TBD (email al7215@nyu.edu)",
+  "link":""
+  }
+]
